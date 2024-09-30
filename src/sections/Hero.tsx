@@ -10,7 +10,7 @@ import { HeroOrbit } from "@/components/HeroOrbit";
 
 export const HeroSection = () => {
   return (
-    <div className="py-32 md:py-40 lg:py-52 relative z-0 overflow-x-clip">
+    <div className="py-32 md:py-40 lg:py-52 relative z-0 overflow-x-clip ">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
@@ -67,8 +67,8 @@ export const HeroSection = () => {
             <div>Available for new projects</div>
           </div>
         </div>
-        <div className="max-w-lg mx-auto">
-          <h1 className="font-serif md:text-8xl text-5xl text-center mt-8 tracking-wide">
+        <div className=" mx-auto">
+          <h1 className="font-cursive md:text-8xl text-5xl text-center mt-8 tracking-wide">
             Hi. I'm Yeabsira.
           </h1>
           {/* <h1 className="font-serif text-xl text-center">A Developer.</h1> */}

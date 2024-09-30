@@ -24,8 +24,10 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
+        inter: ["var(--font-inter)"],
+        cursive: ["var(--font-cursive)"],
+        dancing_script: ["var(--font-dancing_script)"],
+        fredoka: ["var(--font-fredoka)"],
       },
       colors: {
         border: "hsl(var(--border))",
