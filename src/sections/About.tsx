@@ -13,7 +13,7 @@ export const AboutSection = () => {
             <h1 className="text-4xl md:text-[6rem] font-bold  font-cursive ">
               About Me
             </h1>
-            <p className="capitalize text-2xl md:text-[1rem] font-fredoka  font-medium md:pt-4 pt-2 -mb-14">
+            <p className="capitalize text-2xl md:text-3xl font-fredoka  font-medium md:pt-4 pt-2 -mb-14 md:mb-2 italic">
               A glimpse into my world
             </p>
           </div>
