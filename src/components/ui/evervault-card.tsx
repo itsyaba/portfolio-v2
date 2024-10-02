@@ -1,9 +1,6 @@
 "use client";
 import { useMotionValue } from "framer-motion";
-import React, {
-  useState,
-  useEffect,
-} from "react";
+import React, { useState, useEffect } from "react";
 import { useMotionTemplate, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { IconProps } from "@tabler/icons-react";
@@ -14,7 +11,7 @@ export const EvervaultCard = ({
   className,
 }: {
   text?: string;
-  icon?: React.ComponentType<IconProps>;
+  icon?: React.ReactNode;
   className?: string;
 }) => {
   let mouseX = useMotionValue(0);
@@ -45,7 +42,8 @@ export const EvervaultCard = ({
     >
       <div
         onMouseMove={onMouseMove}
-        className="group/card rounded-3xl w-full relative overflow-hidden bg-transparent flex items-center justify-center h-full"
+        className="group/card  w-full relative overflow-hidden bg-transparent flex items-center justify-center h-full "
+        id="father"
       >
         <CardPattern
           mouseX={mouseX}
@@ -55,9 +53,21 @@ export const EvervaultCard = ({
         <div className="relative z-10 flex items-center justify-center">
           <div className="relative  flex items-center justify-center flex-col  text-white font-bold text-4xl">
             {/* <div className="absolute w-full h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full" /> */}
-
-            <span className="text-white z-20">{icon}</span>
-            <span className="text-white z-20">{text}</span>
+            <div
+              className="flex items-center justify-center flex-col"
+              id="child"
+            >
+              {icon && (
+                <span id="icon" className="">
+                  {icon}
+                </span>
+              )}
+              {text && (
+                <span className="font-cursive font-light text-2xl" id="text">
+                  {text}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -71,13 +81,13 @@ export function CardPattern({ mouseX, mouseY, randomString }: any) {
 
   return (
     <div className="pointer-events-none">
-      <div className="absolute inset-0 rounded-2xl  [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"></div>
+      <div className="absolute inset-0   [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"></div>
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500 to-blue-700 opacity-0  group-hover/card:opacity-100 backdrop-blur-xl transition duration-500"
+        className="absolute inset-0  bg-gradient-to-r from-green-500 to-blue-700 opacity-0  group-hover/card:opacity-100 backdrop-blur-xl transition duration-500"
         style={style}
       />
       <motion.div
-        className="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay  group-hover/card:opacity-100"
+        className="absolute inset-0  opacity-0 mix-blend-overlay  group-hover/card:opacity-100"
         style={style}
       >
         <p className="absolute inset-x-0 text-xs h-full break-words whitespace-pre-wrap text-white font-mono font-bold transition duration-500">

@@ -73,3 +73,38 @@
     @apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5;
   }
 }
+
+@layer utilities {
+  .container {
+    @apply lg:max-w-5xl;
+  }
+}
+
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+#father:hover #text {
+  display: block;
+  transition: all 0.3s ease-in-out;
+}
+
+#father:hover #icon {
+  transition: all 0.3s ease-in-out;
+}
+/* #child {} */
+
+#icon {
+  transition: all 0.3s ease-in-out;
+}
+
+#text {
+  transition: all 0.3s ease-in-out;
+  display: none;
+}

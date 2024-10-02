@@ -6,14 +6,14 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 export const AboutSection = () => {
   return (
-    <div className=" flex items-start justify-center -mt-36" id="about">
+    <div className=" flex items-start justify-center -mt-32" id="about">
       <ContainerScroll
         titleComponent={
-          <div className="flex flex-col items-center justify-center md:gap-8">
-            <h1 className="text-4xl md:text-[6rem] font-bold  font-cursive ">
+          <div className="flex flex-col items-center justify-center md:gap-3">
+            <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6">
               About Me
             </h1>
-            <p className="capitalize text-2xl md:text-3xl font-fredoka  font-medium md:pt-4 pt-2 -mb-14 md:mb-2 italic">
+            <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
               A glimpse into my world
             </p>
           </div>
