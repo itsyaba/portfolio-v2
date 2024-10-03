@@ -92,12 +92,21 @@ const config = {
             opacity: "0",
           },
         },
+        "move-left": {
+          "0%": {
+            transform: "translate(0%)",
+          },
+          "100%": {
+            transform: "translateX(-50%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 2s linear infinite",
         "ping-large": "ping-large 1.5s ease-in-out infinite",
+        "move-left": "move-left 1s linear infinite",
       },
     },
   },

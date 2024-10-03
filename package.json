@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-scroll-area": "^1.2.0",
     "@svgr/webpack": "^8.1.0",
     "@tabler/icons-react": "^3.19.0",
     "class-variance-authority": "^0.7.0",

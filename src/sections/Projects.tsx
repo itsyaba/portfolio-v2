@@ -1,18 +1,16 @@
 "use client";
-// import { ArrowRightIcon } from "lucide-react";
+
 import aiStartupLandingPage from "../../public/images/ai-startup-landing-page.png";
 import darkSaaSLandingPage from "../../public/images/dark-saas-landing-page.png";
 
-import grainImage from "../../public/images/grain.jpg";
 import ArrowRightIcon from "../../public/icons/arrow-up-right.svg";
 
 import { Tabs } from "@/components/ui/tabs";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { div } from "framer-motion/client";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { Card } from "@/components/Card";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const projects = [
   {
@@ -46,7 +44,7 @@ const projects = [
     // image: BreaditImg,
     link: "https://breadit.com",
     repo: "https://github.com/itsyaba/breadit",
-    tech: ["Next.js", "TailwindCSS", "MongoDB", "Express", "Node.js"],
+    tech: ["Next.js", "TailwindCSS", "Postgres", "Prisma", "React Query"],
     isTopProject: true,
     isNextjs: true,
     isMern: false,
@@ -58,7 +56,7 @@ const projects = [
     // image: TmsPlatformImg,
     link: "https://tms.com",
     repo: "https://github.com/itsyaba/tms",
-    tech: ["Next.js", "TailwindCSS", "MongoDB", "Express", "Node.js"],
+    tech: ["Next.js", "TailwindCSS", "NeonDB", "Express", "Node.js"],
     isTopProject: true,
     isNextjs: true,
     isMern: false,
@@ -108,54 +106,54 @@ export function ProjectsSection() {
       title: "Top Projects",
       value: "top-projects",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
+        <ScrollArea className="w-full overflow-y-auto relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
           <p className="text-center text-2xl font-cursive  mt-6">
             Top Projects
           </p>
           <ProjectList chosenStack="top-projects" />
-        </div>
+        </ScrollArea>
       ),
     },
     {
       title: "Next.js",
       value: "nextjs",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
+        <ScrollArea className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
           <p className="text-center text-2xl font-cursive  mt-6">Next Js</p>
           <ProjectList chosenStack="nextjs" />
-        </div>
+        </ScrollArea>
       ),
     },
     {
       title: "MERN Stack",
       value: "mern",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
+        <ScrollArea className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
           <p className="text-center text-2xl font-cursive  mt-6">MERN Stack</p>
           <ProjectList chosenStack="mern" />
-        </div>
+        </ScrollArea>
       ),
     },
     {
       title: "HTML/CSS",
       value: "html-css",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
+        <ScrollArea className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
           <p className="text-center text-2xl font-cursive  mt-6">HTML/CSS</p>
           <ProjectList chosenStack="html-css" />
-        </div>
+        </ScrollArea>
       ),
     },
     {
       title: "All Projects",
       value: "all-projects",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
+        <ScrollArea className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
           <p className="text-center text-2xl font-cursive  mt-6">
             All Projects
           </p>
           <ProjectList chosenStack="all-projects" />
-        </div>
+        </ScrollArea>
       ),
     },
   ];
@@ -176,7 +174,7 @@ export function ProjectsSection() {
         </p>
       </div>
       <div
-        className="h-screen md:h-[60rem] [perspective:1000px] relative flex flex-col  mx-auto   items-center justify-center   w-screen md:w-3/4"
+        className="h-screen md:h-[60rem] [perspective:1000px] relative flex flex-col  mx-auto  items-center justify-center   w-screen md:w-3/4"
         id="projects"
       >
         <Tabs tabs={tabs} />
@@ -201,7 +199,10 @@ const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
           filteredProjects.map((project, index) => (
             <Card
               key={index}
-              className=" px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 "
+              className=" px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky top-16 "
+              style={{
+                top: `calc(64px + ${index * 40}px)`,
+              }}
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div>
