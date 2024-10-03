@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { div } from "framer-motion/client";
 import { IconBrandGithub } from "@tabler/icons-react";
+import { Card } from "@/components/Card";
 
 const projects = [
   {
@@ -198,17 +199,10 @@ const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
       <div className="flex flex-col gap-20 mt-10">
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project, index) => (
-            <div
+            <Card
               key={index}
-              className="bg-gray-800 rounded-3xl relative z-0 overflow-hidden after:z-10 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2  after:-outline-offset-2 after:rounded-3xl after:outline-white/20  after:pointer-events-none px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20"
-              // md:pt-12 md:px-10 lg:pt-16 lg:px-20
+              className=" px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 "
             >
-              <div
-                className="absolute inset-0 -z-10 opacity-5"
-                style={{
-                  background: `url(${grainImage.src})`,
-                }}
-              ></div>
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div>
                   <h3 className="font-serif text-2xl mt-2 md:text-4xl">
@@ -255,7 +249,7 @@ const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
                   />
                 </div>
               </div>
-            </div>
+            </Card>
           ))
         ) : (
           <p>No projects found for the selected filter.</p>

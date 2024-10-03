@@ -7,6 +7,7 @@ import SparkleIcon from "../../public/icons/sparkle.svg";
 import { ArrowDown } from "lucide-react";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { HeroOrbit } from "@/components/HeroOrbit";
+import Link from "next/link";
 
 export const HeroSection = () => {
   return (
@@ -23,8 +24,17 @@ export const HeroSection = () => {
         <div className=" size-[1120px] hero-ring" />
         <div className=" size-[1320px] hero-ring" />
         {/* <div className="absolute inset-0 flex items-center justify-center"></div> */}
-        <HeroOrbit size={800} rotation={-72}>
-          <StarIcon className="size-28 text-emerald-300" />
+        <HeroOrbit size={430} rotation={-14}>
+          <SparkleIcon className="size-8 text-emerald-300/20" />
+        </HeroOrbit>
+        <HeroOrbit size={440} rotation={79}>
+          <SparkleIcon className="size-8 text-emerald-300/20" />
+        </HeroOrbit>{" "}
+        <HeroOrbit size={520} rotation={-41}>
+          <div className="size-2 bg-emerald-300/20 rounded-full" />
+        </HeroOrbit>
+        <HeroOrbit size={530} rotation={180}>
+          <SparkleIcon className="size-8 text-emerald-300/20" />
         </HeroOrbit>
         <HeroOrbit size={550} rotation={20}>
           <StarIcon className="size-12 text-emerald-300" />
@@ -32,27 +42,17 @@ export const HeroSection = () => {
         <HeroOrbit size={590} rotation={98}>
           <StarIcon className="size-8 text-emerald-300" />
         </HeroOrbit>
-        <HeroOrbit size={430} rotation={-14}>
-          <SparkleIcon className="size-8 text-emerald-300/20" />
-        </HeroOrbit>
-        <HeroOrbit size={440} rotation={79}>
-          <SparkleIcon className="size-8 text-emerald-300/20" />
-        </HeroOrbit>
-        <HeroOrbit size={530} rotation={180}>
-          <SparkleIcon className="size-8 text-emerald-300/20" />
+        <HeroOrbit size={650} rotation={-5}>
+          <div className="size-2 bg-emerald-300/20 rounded-full" />
         </HeroOrbit>
         <HeroOrbit size={710} rotation={144}>
           <SparkleIcon className="size-8 text-emerald-300/20" />
         </HeroOrbit>
-
         <HeroOrbit size={720} rotation={85}>
           <div className="size-3 bg-emerald-300/20 rounded-full" />
         </HeroOrbit>
-        <HeroOrbit size={520} rotation={-41}>
-          <div className="size-2 bg-emerald-300/20 rounded-full" />
-        </HeroOrbit>
-        <HeroOrbit size={650} rotation={-5}>
-          <div className="size-2 bg-emerald-300/20 rounded-full" />
+        <HeroOrbit size={800} rotation={-72}>
+          <StarIcon className="size-28 text-emerald-300" />
         </HeroOrbit>
       </div>
       <div className="container">
@@ -63,7 +63,9 @@ export const HeroSection = () => {
             className="size-[100px] rounded-full"
           />
           <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
-            <div className="bg-green-500 size-2.5 rounded-full" />
+            <div className="bg-green-500 size-2.5 rounded-full relative">
+              <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
+            </div>
             <div>Available for new projects</div>
           </div>
         </div>
@@ -79,16 +81,16 @@ export const HeroSection = () => {
         </div>
 
         <div className="flex items-center justify-center flex-col md:flex-row mt-8 gap-4">
-          <HoverBorderGradient
-            containerClassName="rounded-full"
-            as="button"
-            className="bg-white text-black flex items-center space-x-2"
+          <Link href="#projects">
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              className="bg-white text-black flex items-center space-x-2"
           >
             <span>Explore My Work</span>
 
             <ArrowDown className="size-4" />
           </HoverBorderGradient>
-
+          </Link>
           <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-12 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
             My Resume
           </button>
