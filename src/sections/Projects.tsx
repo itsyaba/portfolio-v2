@@ -1,7 +1,15 @@
 "use client";
 
-import aiStartupLandingPage from "../../public/images/ai-startup-landing-page.png";
-import darkSaaSLandingPage from "../../public/images/dark-saas-landing-page.png";
+import cypressImage from "../../public/images/projects/cypresss.png";
+import breaditImage from "../../public/images/projects/breadit.png";
+import bookmarkImage from "../../public/images/projects/bookmark.jpg";
+import ecommerceImage from "../../public/images/projects/ecommerce.png";
+import galleryImage from "../../public/images/projects/gallery.png";
+import rockImage from "../../public/images/projects/rockpaperscissor.png";
+import spaceImage from "../../public/images/projects/space.jpg";
+import tmsImage from "../../public/images/projects/tms.png";
+import threadsImage from "../../public/images/projects/threads.png";
+import ratemyuniImage from "../../public/images/projects/ratemyuni.jpg";
 
 import ArrowRightIcon from "../../public/icons/arrow-up-right.svg";
 
@@ -14,24 +22,46 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 const projects = [
   {
+    name: "Breadit",
+    description:
+      "Breadit is a full-stack website built using modern web technologies, including Next.js with the App Router, TypeScript, and Tailwind CSS. The project provides a smooth, dynamic user experience with features like infinite scrolling for loading posts, authentication via NextAuth with Google integration, and personalized feeds for authenticated users. It employs optimistic updates to enhance the user experience by reflecting changes immediately while processing, and advanced caching mechanisms using Upstash Redis. ",
+    image: breaditImage,
+    link: "https://breadit-nextjs.vercel.app",
+    repo: "https://github.com/itsyaba/breadit",
+    tech: [
+      "Next.js",
+      "TailwindCSS",
+      "Postgres",
+      "Prisma",
+      "React Query",
+      "NextAuth",
+      "upstash",
+    ],
+    isTopProject: true,
+    isNextjs: true,
+    isMern: false,
+    isHtmlCss: false,
+  },
+  {
     name: "Cypress",
     description:
       "This project is a simplified clone of the popular productivity application, Notion. It's designed to replicate some of the core features of Notion, providing a platform where users can create, edit, and organize their notes in a flexible and intuitive interface.",
-    // image: CypressImg,
-    link: "https://cypress.com",
+    image: cypressImage,
+    link: "https://cypress-note-taking.vercel.app",
     repo: "https://github.com/itsyaba/cypress",
-    tech: ["Next.js", "TailwindCSS", "MongoDB", "Express", "Node.js"],
+    tech: ["Next.js", "TailwindCSS", "MongoDB", "Express", "Node.js", "Clerk"],
     isTopProject: true,
     isNextjs: true,
     isMern: false,
     isHtmlCss: false,
   },
   {
-    name: "Rate My University",
-    description: "A University Rating Website",
-    // image: CypressImg,
+    name: "Rate My Uni (Hackathon Project)",
+    description:
+      "The project is focused on building a simple, yet functional, web-based interface where students and users can rate universities based on various criteria (e.g., campus, academics). It aims to create a platform where users can submit and view ratings for different universities, much like popular 'Rate My Professor' services but focused on universities as a whole.",
+    image: ratemyuniImage,
     link: "https://ratemyuniversity.com",
-    repo: "https://github.com/itsyaba/ratemyuniversity",
+    repo: "https://github.com/itsyaba/rate-my-uni",
     tech: ["Next.js", "TailwindCSS", "MongoDB", "Express", "Node.js"],
     isTopProject: true,
     isNextjs: true,
@@ -39,36 +69,43 @@ const projects = [
     isHtmlCss: false,
   },
   {
-    name: "Breadit",
-    description: "A Reddit Clone",
-    // image: BreaditImg,
-    link: "https://breadit.com",
-    repo: "https://github.com/itsyaba/breadit",
-    tech: ["Next.js", "TailwindCSS", "Postgres", "Prisma", "React Query"],
+    name: "Task Management Platform",
+    description:
+      "Project management dashboard built with modern web technologies. It leverages Next.js for the frontend, styled with Tailwind CSS, and uses Redux Toolkit and Material UI for state management and data grid handling. The backend is powered by Node.js and Express, with Prisma as the ORM to interact with a PostgreSQL database.",
+    image: tmsImage,
+    link: "https://tms.comhttps://tms-platforms.vercel.app",
+    repo: "https://github.com/itsyaba/tms-platform",
+    tech: [
+      "Next.js",
+      "TailwindCSS",
+      "NeonDB",
+      "Express",
+      "Node.js",
+      "Prisma",
+      "Redux Toolkit",
+      "MUI",
+    ],
     isTopProject: true,
     isNextjs: true,
     isMern: false,
     isHtmlCss: false,
   },
   {
-    name: "Tms Platform",
-    description: "A Task Management System",
-    // image: TmsPlatformImg,
-    link: "https://tms.com",
-    repo: "https://github.com/itsyaba/tms",
-    tech: ["Next.js", "TailwindCSS", "NeonDB", "Express", "Node.js"],
-    isTopProject: true,
-    isNextjs: true,
-    isMern: false,
-    isHtmlCss: false,
-  },
-  {
-    name: "E-Commerce",
-    description: "An E-Commerce Website",
-    // image: ECommerceImg,
-    link: "https://ecommerce.com",
-    repo: "https://github.com/itsyaba/ecommerce",
-    tech: ["React.js", "TailwindCSS", "MongoDB", "Express", "Node.js"],
+    name: "Ethiopian Elegance",
+    description:
+      " E-commerce website designed to sell traditional Ethiopian clothing, jewelry, and home goods. The platform allows users to browse products by category, view detailed descriptions, and add items to a shopping cart. It includes essential e-commerce functionalities such as user account creation, order history tracking, and checkout with payment integration using Stripe.",
+    image: ecommerceImage,
+    link: "https://ethiopian-elegance.onrender.com",
+    repo: "https://github.com/itsyaba/Ethiopian-Elegance",
+    tech: [
+      "MongoDB",
+      "Express",
+      "React.js",
+      "Node.js",
+      "TailwindCSS",
+      "Stripe",
+      "Mantine UI",
+    ],
     isTopProject: true,
     isNextjs: false,
     isMern: true,
@@ -76,10 +113,11 @@ const projects = [
   },
   {
     name: "Gallery Glimpses",
-    description: "An Image Gallery",
-    // image: GalleryImg,
-    link: "https://galleryglimpses.com",
-    repo: "https://github.com/itsyaba/galleryglimpses",
+    description:
+      "A gallery website where users can upload images in either private or public mode. If an image is set to private, only the uploader can view it. Public images are visible to all users.",
+    image: galleryImage,
+    link: "https://gallery-glimpse-web.vercel.app",
+    repo: "https://github.com/itsyaba/Gallery_Glimpse_Frontend",
     tech: ["React.js", "TailwindCSS", "MongoDB", "Express", "Node.js"],
     isTopProject: false,
     isNextjs: false,
@@ -87,16 +125,54 @@ const projects = [
     isHtmlCss: false,
   },
   {
-    name: "Rock Paper Scissors Game",
-    description: "A Rock Paper Scissors Game",
-    // image: RockPaperScissorsImg,
-    link: "https://rockpaperscissors.com",
-    repo: "https://github.com/itsyaba/rockpaperscissors",
+    name: "Space Tourism Website ",
+    description:
+      "Frontend Mentor Challenge to build a space tourism landing page.",
+    image: spaceImage,
+    link: "https://frontend-mentor-rock-paper-scissors-challenge.netlify.app",
+    repo: "https://github.com/itsyaba/Rock--Paper-scissors",
     tech: ["JavaScript ", "HTML", "CSS"],
     isTopProject: false,
     isNextjs: false,
     isMern: false,
     isHtmlCss: true,
+  },
+  {
+    name: "Clipboard ",
+    description:
+      "A history of everything you copy Clipboard allows you to track and organize everything you copy. Instantly access your clipboard on all your devices.",
+    image: bookmarkImage,
+    link: "https://frontend-mentor-rock-paper-scissors-challenge.netlify.app",
+    repo: "https://github.com/itsyaba/Rock--Paper-scissors",
+    tech: ["JavaScript ", "HTML", "CSS"],
+    isTopProject: false,
+    isNextjs: false,
+    isMern: false,
+    isHtmlCss: true,
+  },
+  {
+    name: "Rock Paper Scissors Game",
+    description: "A Rock Paper Scissors Game",
+    image: rockImage,
+    link: "https://frontend-mentor-rock-paper-scissors-challenge.netlify.app",
+    repo: "https://github.com/itsyaba/Rock--Paper-scissors",
+    tech: ["JavaScript ", "HTML", "CSS"],
+    isTopProject: false,
+    isNextjs: false,
+    isMern: false,
+    isHtmlCss: true,
+  },
+  {
+    name: "Threads Clone",
+    description: "Threads Clone",
+    image: threadsImage,
+    link: "https://threads-clone-nextjs-project.vercel.app/",
+    repo: "https://github.com/itsyaba/Threads-Clone",
+    tech: ["Next.js ", "Tailwind", "MongoDB"],
+    isTopProject: false,
+    isNextjs: true,
+    isMern: false,
+    isHtmlCss: false,
   },
 ];
 
@@ -244,9 +320,9 @@ const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
                 </div>
                 <div>
                   <Image
-                    src={aiStartupLandingPage}
+                    src={project.image}
                     alt={project.name}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute  lg:h-full lg:w-auto lg:max-w-none"
+                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute  lg:h-full lg:w-auto lg:max-w-none rounded-tl-lg"
                   />
                 </div>
               </div>
