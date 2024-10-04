@@ -71,7 +71,7 @@ export const HeroSection = () => {
         </div>
         <div className=" mx-auto">
           <h1 className="font-cursive md:text-8xl text-5xl text-center mt-8 tracking-wide">
-            Hi. I'm Yeabsira.
+            Hi. I&apos;`m Yeabsira.
           </h1>
           {/* <h1 className="font-serif text-xl text-center">A Developer.</h1> */}
           <p className="text-center mt-4 text-white/60 md:text-lg">
@@ -85,11 +85,11 @@ export const HeroSection = () => {
             <HoverBorderGradient
               containerClassName="rounded-full"
               className="bg-white text-black flex items-center space-x-2"
-          >
-            <span>Explore My Work</span>
+            >
+              <span>Explore My Work</span>
 
-            <ArrowDown className="size-4" />
-          </HoverBorderGradient>
+              <ArrowDown className="size-4" />
+            </HoverBorderGradient>
           </Link>
           <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-12 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
             My Resume

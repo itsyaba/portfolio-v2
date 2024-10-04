@@ -6,8 +6,8 @@ export const ContactSection = () => {
       </h1>
       <p className="text-center max-w-2xl mx-auto my-10 text-md text-base">
         My inbox is always open. Whether you have a question or just want to say
-        hello, I'll try my best to get back to you! Feel free to mail me about
-        any relevant job updates.
+        hello, I&apos;ll try my best to get back to you! Feel free to mail me
+        about any relevant job updates.
       </p>
     </div>
   );
