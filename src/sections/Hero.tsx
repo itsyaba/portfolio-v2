@@ -71,7 +71,7 @@ export const HeroSection = () => {
         </div>
         <div className=" mx-auto">
           <h1 className="font-cursive md:text-8xl text-5xl text-center mt-8 tracking-wide">
-            Hi. I&apos;`m Yeabsira.
+            Hi. I&apos;m Yeabsira.
           </h1>
           {/* <h1 className="font-serif text-xl text-center">A Developer.</h1> */}
           <p className="text-center mt-4 text-white/60 md:text-lg">
