@@ -38,7 +38,7 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()} Yeabsira Tarekegn. All rights
             reserved.
           </div>
-          <nav className="flex flex-col md:flex-row items-center gap-8">
+          <nav className="grid grid-cols-3 md:grid-cols-6 gap-4">
             {footerLinks.map((link) => (
               <Link
                 target="_blank"
