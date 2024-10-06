@@ -3,6 +3,7 @@ import memojiImage from "../../public/images/memoji-computer.png";
 import grainImage from "../../public/images/grain.jpg";
 import StarIcon from "../../public/icons/star.svg";
 import SparkleIcon from "../../public/icons/sparkle.svg";
+// import resume from "../../public/resume.pdf";
 
 import { ArrowDown } from "lucide-react";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
@@ -11,7 +12,7 @@ import Link from "next/link";
 
 export const HeroSection = () => {
   return (
-    <div className="py-32 md:py-40 lg:py-52 relative z-0 overflow-x-clip ">
+    <div className="py-32 md:py-40 lg:py-52 relative z-0 overflow-x-clip  select-text">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
@@ -91,11 +92,11 @@ export const HeroSection = () => {
               <ArrowDown className="size-4" />
             </HoverBorderGradient>
           </Link>
-          <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-12 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:cursor-pointer">
-            <Link href="/resume.pdf" download="yeabsira">
+          <Link href="/resume.pdf" download>
+            <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-12 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:cursor-pointer z-10">
               My Resume
-            </Link>
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

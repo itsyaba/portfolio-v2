@@ -18,7 +18,7 @@ export const HeroOrbit = ({
   shouldSpin?: boolean;
 }) => {
   return (
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  -z-20">
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
       <div
         className={`animate-spin [animation-duration:30s] ${
           shouldOrbit ? "animate-spin" : ""
@@ -41,7 +41,7 @@ export const HeroOrbit = ({
               transform: `rotate(${rotation}deg)`,
             }}
           >
-            <div className="inline-flex ">{children}</div>
+            <div className="inline-flex">{children}</div>
           </div>
         </div>
       </div>

@@ -23,6 +23,20 @@ const fredoka = Fredoka({
 export const metadata: Metadata = {
   title: "My Portfolio",
   description: "",
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/facivon.ico",
+        href: "/facivon.ico",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/facivon.ico",
+        href: "/facivon.ico",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
