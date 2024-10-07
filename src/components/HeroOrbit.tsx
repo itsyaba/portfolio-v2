@@ -20,7 +20,7 @@ export const HeroOrbit = ({
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
       <div
-        className={`animate-spin [animation-duration:30s] ${
+        className={`[animation-duration:30s] ${
           shouldOrbit ? "animate-spin" : ""
         }`}
         style={{

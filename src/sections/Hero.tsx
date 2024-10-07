@@ -37,10 +37,10 @@ export const HeroSection = () => {
         <HeroOrbit size={530} rotation={180}>
           <SparkleIcon className="size-8 text-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={550} rotation={20}>
+        <HeroOrbit size={550} rotation={20} shouldOrbit orbitDuration="60s">
           <StarIcon className="size-12 text-emerald-300" />
         </HeroOrbit>
-        <HeroOrbit size={590} rotation={98}>
+        <HeroOrbit size={590} rotation={98} shouldOrbit orbitDuration="50s">
           <StarIcon className="size-8 text-emerald-300" />
         </HeroOrbit>
         <HeroOrbit size={650} rotation={-5}>
@@ -52,7 +52,7 @@ export const HeroSection = () => {
         <HeroOrbit size={720} rotation={85}>
           <div className="size-3 bg-emerald-300/20 rounded-full" />
         </HeroOrbit>
-        <HeroOrbit size={800} rotation={-72}>
+        <HeroOrbit size={800} rotation={-72} shouldOrbit orbitDuration="40s">
           <StarIcon className="size-28 text-emerald-300" />
         </HeroOrbit>
       </div>
@@ -81,7 +81,7 @@ export const HeroSection = () => {
           </p>
         </div>
 
-        <div className="flex items-center justify-center flex-col md:flex-row mt-8 gap-4">
+        <div className="flex items-center justify-center flex-col md:flex-row mt-8 gap-4 relative z-10">
           <Link href="#projects">
             <HoverBorderGradient
               containerClassName="rounded-full"
@@ -92,7 +92,7 @@ export const HeroSection = () => {
               <ArrowDown className="size-4" />
             </HoverBorderGradient>
           </Link>
-          <Link href="/resume.pdf" download>
+          <Link href="/resume.pdf" download="yeabsira.pdf">
             <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-12 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:cursor-pointer z-10">
               My Resume
             </button>
