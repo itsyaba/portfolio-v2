@@ -250,7 +250,7 @@ export function ProjectsSection() {
         </p>
       </div>
       <div
-        className="h-screen md:h-[60rem] [perspective:1000px] relative flex flex-col  mx-auto  items-center justify-center   w-screen md:w-3/4"
+        className="h-screen md:h-[60rem] [perspective:1000px] relative flex flex-col  mx-auto  items-center justify-center w-screen md:w-3/4 "
         id="projects"
       >
         <Tabs tabs={tabs} />
@@ -270,12 +270,13 @@ const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-20 mt-10">
+      <div className="flex flex-col gap-20 mt-0 md:mt-10">
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project, index) => (
+            
             <Card
               key={index}
-              className=" px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky top-16 "
+              className=" px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20  last-of-type:mb-36 md:sticky"
               style={{
                 top: `calc(64px + ${index * 40}px)`,
               }}

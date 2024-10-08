@@ -9,7 +9,7 @@ export const AboutSection = () => {
     <div className=" flex items-start justify-center -mt-32" id="about">
       <ContainerScroll
         titleComponent={
-          <div className="flex flex-col items-center justify-center md:gap-3">
+          <div className="flex flex-col items-center justify-center md:gap-3 -mb-28 md:-mb-0">
             <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6">
               About Me
             </h1>
@@ -31,7 +31,7 @@ export const AboutSection = () => {
           src={AboutImageMobile}
           alt="hero"
           height={720}
-          width={1400}
+          width={1600}
           className="mx-auto rounded-2xl object-cover h-full object-left md:hidden "
           draggable={false}
         />
