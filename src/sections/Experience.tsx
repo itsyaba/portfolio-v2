@@ -196,7 +196,8 @@ export const Experience = () => {
         My Experience{" "}
       </h1>
       <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center mt-4 mb-8  max-w-md mx-auto">
-        Some of my expriances.
+        Here are some of my professional projects, showcasing my skills in
+        frontend development, UI/UX design, and performance optimization
       </p>
       {/* <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center mt-4 mb-8  max-w-md mx-auto">
         A small list of cool things I use to construct my projects.
