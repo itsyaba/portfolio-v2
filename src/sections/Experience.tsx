@@ -195,9 +195,9 @@ export const Experience = () => {
       <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6 ">
         My Experience{" "}
       </h1>
-      <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center mt-4 mb-8  max-w-md mx-auto">
+      <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center mt-4 mb-8  max-w-2xl mx-auto">
         Here are some of my professional projects, showcasing my skills in
-        frontend development, UI/UX design, and performance optimization
+        fullstack development, UI/UX design.
       </p>
       {/* <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center mt-4 mb-8  max-w-md mx-auto">
         A small list of cool things I use to construct my projects.
