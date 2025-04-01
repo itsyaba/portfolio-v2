@@ -9,14 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-hover-card": "^1.1.6",
     "@radix-ui/react-scroll-area": "^1.2.0",
     "@svgr/webpack": "^8.1.0",
     "@tabler/icons-react": "^3.19.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.9.0",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.446.0",
+    "motion": "^12.6.2",
     "next": "14.2.5",
+    "qss": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-element-to-jsx-string": "^15.0.0",
