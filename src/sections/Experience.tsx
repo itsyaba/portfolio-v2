@@ -103,12 +103,12 @@ export const Experience = () => {
             Conquer Agency
           </h1>
           <p className=" text-xs md:text-sm font-normal mb-8">
-            At Conquer Agency, I played a key role in the development of
-            Tigat.net, an LMS platform, ensuring a seamless and interactive
-            learning experience. Additionally, I designed and built websites for
-            Nileode, Dideco North America, HUHT Orphanage, and The Mojo Effect,
-            implementing Framer Motion and GSAP to enhance visual storytelling
-            and engagement.
+            At Conquer Agency, I played a key role as a fullstack developer in
+            the development of Tigat.net, an LMS platform, ensuring a seamless
+            and interactive learning experience. Additionally, I designed and
+            built websites for Nileode, Dideco North America, HUHT Orphanage,
+            and The Mojo Effect, implementing Framer Motion and GSAP to enhance
+            visual storytelling and engagement.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
