@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="left">My Portfolio</h1>
 
-## Getting Started
+<p align="left">
+  Welcome to my personal portfolio! This project showcases my skills, experience, and projects in an elegant and responsive web design.
+</p>
 
-First, run the development server:
+<h2>🌟 Features</h2>
+<ul>
+  <li><strong>Modern Design:</strong> A sleek and intuitive user interface.</li>
+  <li><strong>Responsive Layout:</strong> Fully optimized for desktop, tablet, and mobile devices.</li>
+  <li><strong>Projects Showcase:</strong> Highlights my best work with detailed descriptions and links.</li>
+  <li><strong>Contact Form:</strong> Easily get in touch with me directly from the site.</li>
+  <li><strong>Optimized Performance:</strong> Fast loading speeds with modern web optimization techniques.</li>
+</ul>
 
-```bash
+<h2>🚀 Technologies Used</h2>
+<ul>
+  <li><strong>Framework:</strong> <a href="https://nextjs.org/">Next.js</a></li>
+  <li><strong>Styling:</strong> Tailwind CSS</li>
+  <li><strong>Deployment:</strong> <a href="https://vercel.com/">Vercel</a></li>
+  <li><strong>Other Tools:</strong>
+    <ul>
+      <li>React Icons</li>
+      <li>Aceternity UI</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>📂 Project Structure</h2>
+<pre>
+portfolio-v2/
+├── public/            # Static files (images, favicon, etc.)
+├── src/
+│   ├── components/    # Reusable React components
+│   ├── pages/         # Next.js pages
+│   ├── styles/        # Global styles
+│   ├── utils/         # Helper functions
+├── package.json       # Project dependencies
+├── tailwind.config.js # Tailwind CSS configuration
+└── README.md          # Project documentation
+</pre>
+
+<h2>📸 Screenshots</h2>
+<p>
+  <strong>Home Page</strong><br>
+  <img src="https://github.com/user-attachments/assets/046ceea5-ed8a-4695-abfc-c7763b6b2693" alt="Home Page Screenshot" width="600">
+</p>
+<p>
+  <strong>Projects Page</strong><br>
+  <img src="https://github.com/user-attachments/assets/757deab0-5420-442c-978c-8d893e4a38a7" alt="Projects Page Screenshot" width="600">
+</p>
+
+<h2>🛠️ Installation & Development</h2>
+<ol>
+  <li><strong>Clone the repository:</strong>
+    <pre>
+git clone https://github.com/itsyaba/portfolio-v2.git
+cd portfolio-v2
+    </pre>
+  </li>
+  <li><strong>Install dependencies:</strong>
+    <pre>
+npm install
+    </pre>
+  </li>
+  <li><strong>Run the development server:</strong>
+    <pre>
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    </pre>
+  </li>
+  <li>Open your browser and navigate to <a href="http://localhost:3000">http://localhost:3000</a>.</li>
+</ol>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h2>🌍 Live Demo</h2>
+<p>
+  Check out the live version of my portfolio: <a href="https://yeabsiras-portfolio.vercel.app/">Yeabsira Portfolio</a>
+</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<h2>📧 Contact</h2>
+<ul>
+  <li><strong>Email:</strong> yabahane@gmai.com</li>
+  <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/itsyaba">Yeabsira's LinkedIn</a></li>
+</ul>
