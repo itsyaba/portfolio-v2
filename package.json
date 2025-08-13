@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@radix-ui/react-hover-card": "^1.1.6",
     "@radix-ui/react-scroll-area": "^1.2.0",
     "@svgr/webpack": "^8.1.0",
@@ -16,6 +17,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.446.0",
     "motion": "^12.6.2",
     "next": "14.2.5",

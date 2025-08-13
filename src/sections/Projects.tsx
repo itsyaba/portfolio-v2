@@ -19,8 +19,20 @@ import Link from "next/link";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { Card } from "@/components/Card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { motion } from "framer-motion";
 
-const projects = [
+import tigatImage from "../../public/images/tigat-new.png";
+import nileodeImage from "../../public/images/nileode-new.png";
+import whalersImage from "../../public/images/whalers.png";
+import LalibelaImage from "../../public/images/lalibela.png";
+import calmifyImage from "../../public/images/calmify-home.png";
+import servicenowImage from "../../public/service.png";
+import HUHTImage from "../../public/images/HUHT.png";
+import DidecoImage from "../../public/images/dideco.png";
+import MojoImage from "../../public/images/mojo.png";
+import { Globe2 } from "lucide-react";
+
+const sideProjects = [
   {
     name: "Breadit",
     description:
@@ -28,15 +40,7 @@ const projects = [
     image: breaditImage,
     link: "https://breadit-nextjs.vercel.app",
     repo: "https://github.com/itsyaba/breadit",
-    tech: [
-      "Next.js",
-      "TailwindCSS",
-      "Postgres",
-      "Prisma",
-      "React Query",
-      "NextAuth",
-      "upstash",
-    ],
+    tech: ["Next.js", "TailwindCSS", "Postgres", "Prisma", "React Query", "NextAuth", "upstash"],
     isTopProject: true,
     isNextjs: true,
     isMern: false,
@@ -97,15 +101,7 @@ const projects = [
     image: ecommerceImage,
     link: "https://ethiopian-elegance.onrender.com",
     repo: "https://github.com/itsyaba/Ethiopian-Elegance",
-    tech: [
-      "MongoDB",
-      "Express",
-      "React.js",
-      "Node.js",
-      "TailwindCSS",
-      "Stripe",
-      "Mantine UI",
-    ],
+    tech: ["MongoDB", "Express", "React.js", "Node.js", "TailwindCSS", "Stripe", "Mantine UI"],
     isTopProject: true,
     isNextjs: false,
     isMern: true,
@@ -126,8 +122,7 @@ const projects = [
   },
   {
     name: "Space Tourism Website ",
-    description:
-      "Frontend Mentor Challenge to build a space tourism landing page.",
+    description: "Frontend Mentor Challenge to build a space tourism landing page.",
     image: spaceImage,
     link: "https://frontend-mentor-rock-paper-scissors-challenge.netlify.app",
     repo: "https://github.com/itsyaba/Rock--Paper-scissors",
@@ -176,6 +171,73 @@ const projects = [
   },
 ];
 
+const projects = [
+  {
+    name: "Tigat.net",
+    description: "Tigat.net is a platform for learning and teaching.",
+    image: tigatImage,
+    link: "https://tigat.net",
+    location: "Ethiopia",
+  },
+  {
+    name: "Servicenow",
+    description: "Servicenow is a platform for learning and teaching.",
+    image: servicenowImage,
+    link: "https://servicenow.com",
+    location: "Canada",
+  },
+  {
+    name: "Whalers",
+    description: "Whalers is a platform for learning and teaching.",
+    image: whalersImage,
+    link: "https://whalers.com",
+    location: "USA",
+  },
+  {
+    name: "Nileode Technologies",
+    description: "Nileode Technologies is a platform for learning and teaching.",
+    image: nileodeImage,
+    link: "https://nileode.com",
+    location: "Ethiopia",
+  },
+  {
+    name: "Lalibela",
+    description: "Lalibela is a platform for learning and teaching.",
+    image: LalibelaImage,
+    link: "https://lalibela.com",
+    location: "Ethiopia",
+  },
+
+  {
+    name: "The Mojo Effect",
+    description: "Mojo is a platform for learning and teaching.",
+    image: MojoImage,
+    link: "https://themojoeffect.com/",
+    location: "USA",
+  },
+  {
+    name: "HUHT Orphanage",
+    description: "HUHT Orphanage is a platform for learning and teaching.",
+    image: HUHTImage,
+    link: "https://huhtorphanage.com",
+    location: "Canada",
+  },
+  {
+    name: "Dideco North America",
+    description: "Dideco North America is a platform for learning and teaching.",
+    image: DidecoImage,
+    link: "https://dideco.com",
+    location: "North America",
+  },
+  {
+    name: "Calmify",
+    description: "Calmify is a platform for learning and teaching.",
+    image: calmifyImage,
+    link: "https://calmify.com",
+    location: "Ethiopia",
+  },
+];
+
 export function ProjectsSection() {
   const tabs = [
     {
@@ -183,9 +245,7 @@ export function ProjectsSection() {
       value: "top-projects",
       content: (
         <ScrollArea className="w-full overflow-y-auto relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
-          <p className="text-center text-2xl font-cursive  mt-6">
-            Top Projects
-          </p>
+          <p className="text-center text-2xl font-cursive  mt-6">Top Projects</p>
           <ProjectList chosenStack="top-projects" />
         </ScrollArea>
       ),
@@ -225,9 +285,7 @@ export function ProjectsSection() {
       value: "all-projects",
       content: (
         <ScrollArea className="w-full overflow-hidden relative h-full rounded-2xl  bg-gradient-to-br from-purple-700 to-violet-900">
-          <p className="text-center text-2xl font-cursive  mt-6">
-            All Projects
-          </p>
+          <p className="text-center text-2xl font-cursive  mt-6">All Projects</p>
           <ProjectList chosenStack="all-projects" />
         </ScrollArea>
       ),
@@ -236,23 +294,75 @@ export function ProjectsSection() {
 
   return (
     <div className=" h-full my-40">
-      <div className="container mb-12">
+      <div className="max-w-6xl mx-auto mb-12">
         <div className="flex justify-center">
-          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
+          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center backdrop-blur-sm">
             Real-world Results
           </p>
         </div>
-        <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6">
-          Featured Projects
-        </h1>
+        <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6">Featured Projects</h1>
         <p className="text-center text-white/60 mt-4 md:text-lg max-w-md mx-auto">
           See how I transformed concepts into engaging digital experiences.
         </p>
+
+        {/* main projects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-10 font-poppins w-full">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className={`flex flex-col gap-4 ${index % 2 !== 0 ? "mt-8" : ""}`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
+            >
+              <motion.div
+                className="flex flex-row gap-4 p-2 bg-gradient-to-br from-emerald-300 to-sky-500 backdrop-blur-sm rounded-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Image src={project.image} alt={project.name} className="rounded-lg" />
+              </motion.div>
+              <motion.div
+                className="flex flex-row gap-1 items-center"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+              >
+                <h3 className="text-2xl font-cursive">{project.name}</h3> -
+                <p className="text-white/60">{project.location}</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+              >
+                <Link href={project.link} className="w-1/3" target="_blank">
+                  <button className="bg-white text-gray-950 h-12 w-1/3 rounded-xl font-semibold inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-white/80   transition-all duration-300 capitalize ">
+                    <span> check it out </span>
+                    <ArrowRightIcon className="size-4 " />
+                  </button>
+                </Link>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </div>
       <div
         className="h-screen md:h-[60rem] [perspective:1000px] relative flex flex-col  mx-auto  items-center justify-center w-screen md:w-3/4 "
         id="projects"
       >
+        {/* other side projects */}
+        <div className="flex flex-col gap-4 mb-10">
+          <h2 className="text-2xl font-cursive">Selected Side Projects</h2>
+        </div>
+
         <Tabs tabs={tabs} />
       </div>
     </div>
@@ -260,7 +370,7 @@ export function ProjectsSection() {
 }
 
 const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
-  const filteredProjects = projects.filter((project) => {
+  const filteredProjects = sideProjects.filter((project) => {
     if (chosenStack === "nextjs") return project.isNextjs;
     if (chosenStack === "top-projects") return project.isTopProject;
     if (chosenStack === "mern") return project.isMern;
@@ -273,7 +383,6 @@ const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
       <div className="flex flex-col gap-20 mt-0 md:mt-10">
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project, index) => (
-            
             <Card
               key={index}
               className=" px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20  last-of-type:mb-36 md:sticky"
@@ -283,13 +392,9 @@ const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div>
-                  <h3 className="font-serif text-2xl mt-2 md:text-4xl">
-                    {project.name}
-                  </h3>
+                  <h3 className="font-serif text-2xl mt-2 md:text-4xl">{project.name}</h3>
                   <hr className="border-white/5 border-t-2 mt-4" />
-                  <p className="text-white/60 mt-4 text-sm md:text-base ">
-                    {project.description}
-                  </p>
+                  <p className="text-white/60 mt-4 text-sm md:text-base ">{project.description}</p>
                   <ul className="text-white/50 mt-4 flex flex-wrap gap-4 flex-row">
                     {project.tech.map((tech, index) => (
                       <li
@@ -301,11 +406,7 @@ const ProjectList = ({ chosenStack }: { chosenStack: string }) => {
                     ))}
                   </ul>
                   <div className="flex flex-row gap-4 items-center justify-start my-8">
-                    <Link
-                      href={project.link}
-                      className="w-2/3 md:w-2/5"
-                      target="_blank"
-                    >
+                    <Link href={project.link} className="w-2/3 md:w-2/5" target="_blank">
                       <button className="bg-white text-gray-950 h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-white/80   transition-all duration-300">
                         <span>View Live Site</span>
                         <ArrowRightIcon className="size-4 " />

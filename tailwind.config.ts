@@ -28,6 +28,7 @@ const config = {
         cursive: ["var(--font-cursive)"],
         dancing_script: ["var(--font-dancing_script)"],
         fredoka: ["var(--font-fredoka)"],
+        poppins: ["var(--font-poppins)"],
       },
       colors: {
         border: "hsl(var(--border))",

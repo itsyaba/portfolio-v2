@@ -76,8 +76,8 @@ export const HeroSection = () => {
           </h1>
           {/* <h1 className="font-serif text-xl text-center">A Developer.</h1> */}
           <p className="text-center mt-4 text-white/60 md:text-lg">
-            I specialize in transforming designs into functional,
-            high-performance , scalable websites and web applications.
+            I specialize in transforming designs into functional, high-performance , scalable
+            websites and web applications.
           </p>
         </div>
 
