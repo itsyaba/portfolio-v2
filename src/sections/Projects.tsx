@@ -27,7 +27,7 @@ import whalersImage from "../../public/images/whalers.png";
 import LalibelaImage from "../../public/images/lalibela.png";
 import calmifyImage from "../../public/images/calmify-home.png";
 import servicenowImage from "../../public/service.png";
-import HUHTImage from "../../public/images/HUHT.png";
+import HUHTImage from "../../public/images/huht-new.png";
 import DidecoImage from "../../public/images/dideco.png";
 import MojoImage from "../../public/images/mojo.png";
 import { Globe2 } from "lucide-react";
