@@ -190,7 +190,7 @@ const projects = [
     name: "Whalers",
     description: "Whalers is a platform for learning and teaching.",
     image: whalersImage,
-    link: "https://whalers.com",
+    link: "https://whalerapp.com",
     location: "USA",
   },
   {
@@ -204,7 +204,7 @@ const projects = [
     name: "Lalibela",
     description: "Lalibela is a platform for learning and teaching.",
     image: LalibelaImage,
-    link: "https://lalibela.com",
+    link: "https://lalibelahoney.com",
     location: "Ethiopia",
   },
 
