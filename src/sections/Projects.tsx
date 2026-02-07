@@ -30,6 +30,10 @@ import servicenowImage from "../../public/service.png";
 import HUHTImage from "../../public/images/huht-new.png";
 import DidecoImage from "../../public/images/dideco.png";
 import MojoImage from "../../public/images/mojo.png";
+import ideeza from "../../public/images/ideeza.png";
+import sambike from "../../public/images/sambike.png";
+import humble from "../../public/images/humble.png";
+
 import { Globe2 } from "lucide-react";
 
 const sideProjects = [
@@ -173,6 +177,13 @@ const sideProjects = [
 
 const projects = [
   {
+    name: "IDEEZA",
+    description: "IDEEZA is a platform for learning and teaching.",
+    image: ideeza,
+    link: "https://ideeza.com",
+    location: "Israel",
+  },
+  {
     name: "Tigat.net",
     description: "Tigat.net is a platform for learning and teaching.",
     image: tigatImage,
@@ -180,10 +191,26 @@ const projects = [
     location: "Ethiopia",
   },
   {
-    name: "Servicenow",
+    name: "BetterLink",
     description: "Servicenow is a platform for learning and teaching.",
     image: servicenowImage,
     link: "https://servicenow.com",
+    location: "Canada",
+  },
+  {
+    name: "Sam Bike",
+    description: "Servicenow is a platform for learning and teaching.",
+    image: sambike,
+    link: "https://bike-sharing-web.vercel.app/",
+    // link: "https://servicenow.com",
+    location: "Canada",
+  },
+  {
+    name: "Humble Coffe",
+    description: "Servicenow is a platform for learning and teaching.",
+    image: humble,
+    link: "https://humblecoffeewa.com/",
+    // link: "https://servicenow.com",
     location: "Canada",
   },
   {
