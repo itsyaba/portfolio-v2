@@ -17,16 +17,19 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
-    "gsap": "^3.13.0",
+    "gsap": "^3.14.2",
     "lucide-react": "^0.446.0",
     "motion": "^12.6.2",
     "next": "14.2.5",
+    "postprocessing": "^6.38.2",
     "qss": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-element-to-jsx-string": "^15.0.0",
+    "react-router-dom": "^6.30.3",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.167.1"
   },
   "devDependencies": {
     "@types/node": "^20",
