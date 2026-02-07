@@ -1,5 +1,5 @@
 import aiStartupLandingPage from "../../public/images/ai-startup-landing-page.png";
-import AboutImage from "../../public/images/aboutme.png";
+import AboutImage from "../../public/images/new-about.png";
 import AboutImageMobile from "../../public/images/aboutme (2).png";
 import Image from "next/image";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
@@ -21,8 +21,8 @@ export const AboutSection = () => {
           src={AboutImage}
           alt="hero"
           height={720}
-          width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top hidden md:block"
+          width={2600}
+          className="mx-auto rounded-2xl object-contain w-full h-auto hidden md:block"
           draggable={false}
         />
         <Image
@@ -30,7 +30,7 @@ export const AboutSection = () => {
           alt="hero"
           height={720}
           width={1600}
-          className="mx-auto rounded-2xl object-cover h-full object-left md:hidden "
+          className="mx-auto rounded-2xl object-contain w-full h-auto md:hidden"
           draggable={false}
         />
       </ContainerScroll>
