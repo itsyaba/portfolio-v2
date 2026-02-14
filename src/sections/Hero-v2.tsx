@@ -8,7 +8,7 @@ import memojiImage from "../../public/images/memoji-computer.png";
 
 const HeroV2 = () => {
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden" id="hero">
       <div className="container absolute inset-0 z-10 flex flex-col items-center justify-center ">
         <div className="flex flex-col items-center ">
           <Image

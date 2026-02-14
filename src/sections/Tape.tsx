@@ -46,14 +46,14 @@ import React from "react";
 
 const Tape = () => {
   return (
-    <>
+    <div id="tape">
       <CurvedLoop
         marqueeText="Usable ✦ Performant ✦ Reliable ✦ Responsive ✦ Robust ✦ Scalable ✦ Secure ✦ Accessible ✦ User Friendly ✦ Maintainable ✦  Interactive ✦ Search Optimized ✦"
         speed={5.1}
         curveAmount={400}
         interactive
       />
-    </>
+    </div>
   );
 };
 
