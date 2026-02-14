@@ -242,16 +242,16 @@ const PillNav: React.FC<PillNavProps> = ({
     ["--pill-bg"]: pillColor,
     ["--hover-text"]: hoveredPillTextColor,
     ["--pill-text"]: resolvedPillTextColor,
-    ["--nav-h"]: "42px",
-    ["--logo"]: "36px",
-    ["--pill-pad-x"]: "18px",
+    ["--nav-h"]: "46px",
+    ["--logo"]: "34px",
+    ["--pill-pad-x"]: "16px",
     ["--pill-gap"]: "3px",
   } as React.CSSProperties;
 
   return (
-    <div className="absolute top-[1em] z-[1000] w-full left-0 md:w-auto md:left-auto">
+    <div className="fixed top-4 left-1/2 z-[1000] w-full max-w-fit -translate-x-1/2 px-4">
       <nav
-        className={`w-full md:w-max flex items-center justify-between md:justify-start px-4 md:px-0 ${className}`}
+        className={`mx-auto flex w-full items-center justify-between md:w-max md:justify-start ${className}`}
         aria-label="Primary"
         style={cssVars}
       >
@@ -264,7 +264,7 @@ const PillNav: React.FC<PillNavProps> = ({
             ref={(el) => {
               logoRef.current = el;
             }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_24px_rgba(0,0,0,0.25)]"
+            className="relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/5 p-2 shadow-[0_10px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
             style={{
               width: "var(--nav-h)",
               height: "var(--nav-h)",
@@ -303,7 +303,7 @@ const PillNav: React.FC<PillNavProps> = ({
             ref={(el) => {
               logoRef.current = el;
             }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_8px_24px_rgba(0,0,0,0.25)]"
+            className="relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/5 p-2 shadow-[0_10px_28px_rgba(0,0,0,0.35)] backdrop-blur-xl"
             style={{
               width: "var(--nav-h)",
               height: "var(--nav-h)",
@@ -331,7 +331,7 @@ const PillNav: React.FC<PillNavProps> = ({
 
         <div
           ref={navItemsRef}
-          className="relative items-center rounded-full hidden md:flex ml-2 backdrop-blur-xl bg-white/10 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.25)]"
+          className="relative ml-2 hidden items-center rounded-full border border-white/15 bg-white/5 p-1 shadow-[0_12px_30px_rgba(0,0,0,0.32)] backdrop-blur-xl md:flex"
           style={{
             height: "var(--nav-h)",
             background: "var(--base, rgba(255,255,255,0.08))",
@@ -339,12 +339,10 @@ const PillNav: React.FC<PillNavProps> = ({
         >
           <ul
             role="menubar"
-            className="list-none flex items-stretch m-0 p-[3px] h-full"
+            className="m-0 flex h-full list-none items-stretch p-0"
             style={{ gap: "var(--pill-gap)" }}
           >
             {items.map((item, i) => {
-              const isActive = activeHref === item.href;
-
               const pillStyle: React.CSSProperties = {
                 background: "var(--pill-bg, #fff)",
                 color: "var(--pill-text, var(--base, #000))",
@@ -383,18 +381,11 @@ const PillNav: React.FC<PillNavProps> = ({
                       {item.label}
                     </span>
                   </span>
-                  {isActive && (
-                    <span
-                      className="absolute left-1/2 -bottom-[6px] -translate-x-1/2 w-3 h-3 rounded-full z-[4]"
-                      style={{ background: "var(--pill-bg, rgba(255,255,255,0.35))" }}
-                      aria-hidden="true"
-                    />
-                  )}
                 </>
               );
 
               const basePillClasses =
-                "relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0 text-white/85 bg-white/5 border border-white/10 backdrop-blur-md transition-colors hover:bg-white/10 hover:border-white/20";
+                "relative inline-flex h-full cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-white/10 bg-white/[0.06] px-0 font-sans text-[16px] font-medium tracking-[0.02em] text-white/90 no-underline transition-colors hover:border-white/25 hover:bg-white/15";
 
               return (
                 <li key={item.href} role="none" className="flex h-full">
@@ -416,7 +407,6 @@ const PillNav: React.FC<PillNavProps> = ({
                       href={item.href}
                       className={cn(basePillClasses)}
                       style={pillStyle}
-
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
@@ -435,7 +425,7 @@ const PillNav: React.FC<PillNavProps> = ({
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
-          className="md:hidden rounded-full border border-white/20 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative backdrop-blur-xl bg-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.25)]"
+          className="relative flex cursor-pointer flex-col items-center justify-center gap-1 rounded-full border border-white/20 bg-white/5 p-0 shadow-[0_8px_24px_rgba(0,0,0,0.25)] backdrop-blur-xl md:hidden"
           style={{
             width: "var(--nav-h)",
             height: "var(--nav-h)",
@@ -455,7 +445,7 @@ const PillNav: React.FC<PillNavProps> = ({
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[3em] left-4 right-4 rounded-[27px] backdrop-blur-xl bg-white/10 border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.25)] z-[998] origin-top"
+        className="absolute left-4 right-4 top-[3.5em] z-[998] origin-top rounded-[22px] border border-white/15 bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.25)] backdrop-blur-xl md:hidden"
         style={{
           ...cssVars,
           background: "var(--base, rgba(255,255,255,0.08))",
