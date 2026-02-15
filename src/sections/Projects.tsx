@@ -295,7 +295,7 @@ export function ProjectsSection() {
             Real-world Results
           </p>
         </div>
-        <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6">Featured Projects</h1>
+        <h2 className="font-cursive text-3xl md:text-5xl text-center mt-6">Featured Projects</h2>
         <p className="text-center text-white/60 mt-4 md:text-lg max-w-md mx-auto">
           See how I transformed concepts into engaging digital experiences.
         </p>

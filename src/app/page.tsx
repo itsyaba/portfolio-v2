@@ -1,154 +1,61 @@
-"use client";
-import { AboutSection } from "@/sections/About";
-import { HeroSection } from "@/sections/Hero";
-import { ProjectsSection } from "@/sections/Projects";
-import { Experience } from "@/sections/Experience";
-import { Footer } from "@/sections/Footer";
-import { ContactSection } from "@/sections/Contact";
-import Loader from "@/components/Loader";
-import { useEffect, useState } from "react";
-import CustomCursor from "@/components/CustomCursor";
-import Header from "@/sections/Header";
-import HeroV2 from "@/sections/Hero-v2";
-import Tape from "@/sections/Tape";
+import type { Metadata } from "next";
+import HomePageClient from "./home-page-client";
+import { siteConfig } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "Yeabsira - Full-Stack Developer",
+  description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    images: [siteConfig.ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+};
 
 export default function Home() {
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    const sectionIds = ["hero", "about", "experience", "tape", "projects", "contact"];
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((element): element is HTMLElement => Boolean(element));
-
-    if (!sections.length) {
-      return;
-    }
-
-    const timings = new Map<string, number>();
-    const ratios = new Map<string, number>();
-    let activeSectionId: string | null = null;
-    let lastChange = performance.now();
-    let hasSent = false;
-
-    const addTime = (sectionId: string, now: number) => {
-      const current = timings.get(sectionId) ?? 0;
-      timings.set(sectionId, current + (now - lastChange));
-    };
-
-    const setActiveSection = (nextId: string | null, now: number) => {
-      if (nextId === activeSectionId) {
-        return;
-      }
-
-      if (activeSectionId) {
-        addTime(activeSectionId, now);
-      }
-
-      activeSectionId = nextId;
-      lastChange = now;
-    };
-
-    const roundToNearest = (value: number, step: number) => Math.round(value / step) * step;
-
-    const sendSummary = () => {
-      if (hasSent) {
-        return;
-      }
-
-      hasSent = true;
-      const now = performance.now();
-
-      if (activeSectionId) {
-        addTime(activeSectionId, now);
-      }
-
-      const sectionEntries = Array.from(timings.entries())
-        .map(([id, ms]) => ({ id, ms: roundToNearest(ms, 5000) }))
-        .filter((entry) => entry.ms > 0);
-
-      const totalMs = roundToNearest(
-        sectionEntries.reduce((sum, entry) => sum + entry.ms, 0),
-        5000,
-      );
-
-      const payload = JSON.stringify({
-        page: window.location.pathname,
-        sections: sectionEntries,
-        totalMs,
-      });
-
-      if (navigator.sendBeacon) {
-        const blob = new Blob([payload], { type: "application/json" });
-        navigator.sendBeacon("/api/visit", blob);
-      } else {
-        fetch("/api/visit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: payload,
-          keepalive: true,
-        }).catch(() => {});
-      }
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = (entry.target as HTMLElement).id;
-          ratios.set(id, entry.isIntersecting ? entry.intersectionRatio : 0);
-        });
-
-        const now = performance.now();
-        const sorted = Array.from(ratios.entries()).sort((a, b) => b[1] - a[1]);
-        const next = sorted.length && sorted[0][1] > 0.4 ? sorted[0][0] : null;
-        setActiveSection(next, now);
-      },
-      { threshold: [0, 0.25, 0.5, 0.75, 1] },
-    );
-
-    sections.forEach((section) => {
-      ratios.set(section.id, 0);
-      observer.observe(section);
-    });
-
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === "hidden") {
-        sendSummary();
-      }
-    };
-
-    window.addEventListener("pagehide", sendSummary);
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("pagehide", sendSummary);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, []);
-
-  const handleLoaderComplete = () => {
-    setShowContent(true);
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Yeabsira",
+    url: siteConfig.url,
+    jobTitle: "Full-Stack Developer",
+    sameAs: [siteConfig.social.github, siteConfig.social.linkedin],
+    knowsAbout: ["Next.js", "React", "TypeScript", "Node.js", "Tailwind CSS"],
   };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+  };
+
   return (
-    <div>
-      {/* <Loader onComplete={handleLoaderComplete} /> */}
-      {/* {showContent && ( */}
-      <>
-        <CustomCursor />
-        <Header />
-        {/* <HeroSection /> */}
-        <HeroV2 />
-        <AboutSection />
-        <Experience />
-        <Tape />
-        <ProjectsSection />
-        <ContactSection />
-        <Footer />
-      </>
-      {/* )} */}
-    </div>
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteJsonLd),
+        }}
+      />
+      <HomePageClient />
+    </main>
   );
 }

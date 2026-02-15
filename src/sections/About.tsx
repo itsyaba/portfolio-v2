@@ -10,7 +10,7 @@ export const AboutSection = () => {
       <ContainerScroll
         titleComponent={
           <div className="flex flex-col items-center justify-center md:gap-3 -mb-28 md:-mb-0">
-            <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6">About Me</h1>
+            <h2 className="font-cursive text-3xl md:text-5xl text-center mt-6">About Me</h2>
             <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
               A glimpse into my world
             </p>

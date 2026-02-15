@@ -100,7 +100,7 @@ export const Experience = () => {
       subtitle: "Israel - Remote",
       content: (
         <div>
-          <h1 className="text-3xl md:text-5xl mb-6  font-serif">IDEEZA</h1>
+          <h3 className="text-3xl md:text-5xl mb-6  font-serif">IDEEZA</h3>
           <p className=" text-xs md:text-[14px] font-normal mb-8 font-poppins leading-relaxed">
             IDEEZA is a generative AI product development platform that turns plain-language ideas
             into manufacturable hardware blueprints electronic circuits, 3D enclosures, and embedded
@@ -115,7 +115,7 @@ export const Experience = () => {
       subtitle: "Addis Ababa - Remote",
       content: (
         <div>
-          <h1 className="text-3xl md:text-5xl mb-6  font-serif">Nileode Technologies</h1>
+          <h3 className="text-3xl md:text-5xl mb-6  font-serif">Nileode Technologies</h3>
           <p className=" text-xs md:text-[14px] font-normal mb-8 font-poppins leading-relaxed">
             At Nileode Technologies, I played a key role as a fullstack developer in the development
             of Tigat.net, an LMS platform, ensuring a seamless and interactive learning experience.
@@ -160,7 +160,7 @@ export const Experience = () => {
       title: "Early 2025",
       content: (
         <div>
-          <h1 className="text-3xl md:text-5xl mb-6 font-serif">Go2Cod</h1>
+          <h3 className="text-3xl md:text-5xl mb-6 font-serif">Go2Cod</h3>
           <p className=" text-xs md:text-sm font-normal mb-8">
             As the Frontend Lead at Go2Cod, I was responsible for designing and developing Calmify,
             an AI-powered therapy platform aimed at enhancing mental health support. The project won
@@ -174,7 +174,7 @@ export const Experience = () => {
       title: "2023 - 2024",
       content: (
         <div>
-          <h1 className="text-3xl md:text-5xl mb-6 font-serif">Freelance</h1>
+          <h3 className="text-3xl md:text-5xl mb-6 font-serif">Freelance</h3>
           <p className=" text-xs md:text-sm font-normal mb-8">
             As a Freelance Fullstack Developer, I was responsible for designing and developing
             various web applications, focusing on enhancing user experience and implementing modern
@@ -188,7 +188,7 @@ export const Experience = () => {
 
   return (
     <div className=" flex flex-col items-center justify-center  overflow-clip " id="experience">
-      <h1 className="font-cursive text-3xl md:text-5xl text-center mt-6 ">My Experience </h1>
+      <h2 className="font-cursive text-3xl md:text-5xl text-center mt-6 ">My Experience </h2>
       <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center mt-4 mb-8  max-w-2xl mx-auto">
         Here are some of my professional projects, showcasing my skills in fullstack development,
         UI/UX design.
