@@ -5,11 +5,12 @@ import { ProjectsSection } from "@/sections/Projects";
 import { Experience } from "@/sections/Experience";
 import { Footer } from "@/sections/Footer";
 import { ContactSection } from "@/sections/Contact";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CustomCursor from "@/components/CustomCursor";
 import Header from "@/sections/Header";
 import HeroV2 from "@/sections/Hero-v2";
 import Tape from "@/sections/Tape";
+import Loader from "@/components/Loader";
 
 export default function HomePageClient() {
   useEffect(() => {
@@ -125,18 +126,30 @@ export default function HomePageClient() {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
+  ``;
+
+  const [showContent, setShowContent] = useState(false);
+
+  const handleLoaderComplete = () => {
+    setShowContent(true);
+  };
 
   return (
     <>
-      <CustomCursor />
-      <Header />
-      <HeroV2 />
-      <AboutSection />
-      <Experience />
-      <Tape />
-      <ProjectsSection />
-      <ContactSection />
-      <Footer />
+      <Loader onComplete={() => handleLoaderComplete()} />
+      {showContent && (
+        <>
+          <CustomCursor />
+          <Header />
+          <HeroV2 />
+          <AboutSection />
+          <Experience />
+          <Tape />
+          <ProjectsSection />
+          <ContactSection />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
