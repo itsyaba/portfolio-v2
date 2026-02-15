@@ -1,25 +1,29 @@
-import Link from "next/link";
+import PillNav from "@/components/PillNav";
+import React from "react";
 
-export const Header = () => {
+const Header = () => {
   return (
-    <div className="flex justify-center items-center fixed top-3 w-full z-10">
-      <nav className="flex gap-1 p-0.5 border border-white/15 rounded-full backdrop-blur-md bg-white/10">
-        <Link href="#home" className="nav-items">
-          Home
-        </Link>
-        <Link href="#about" className="nav-items">
-          About
-        </Link>
-        <Link href="#experience" className="nav-items">
-          Experience
-        </Link>
-        <Link href="#projects" className="nav-items">
-          Projects
-        </Link>
-        <Link href="#contact" className="nav-items bg-white text-gray-900 hover:bg-white-70 ">
-          Contact
-        </Link>
-      </nav>
+    <div className="w-full flex items-center justify-center px-4">
+      <PillNav
+        logo={"https://www.svgrepo.com/show/474334/coding.svg"}
+        items={[
+          { label: "Home", href: "/" },
+          { label: "About", href: "#about" },
+          { label: "Experience", href: "#experience" },
+          { label: "Projects", href: "#projects" },
+          { label: "Contact", href: "#contact" },
+        ]}
+        activeHref="/"
+        className="custom-nav"
+        ease="power2.easeOut"
+        baseColor="rgba(7, 12, 24, 0.7)"
+        pillColor="rgba(255, 255, 255, 0.14)"
+        hoveredPillTextColor="#ffffff"
+        pillTextColor="rgba(255, 255, 255, 0.85)"
+        initialLoadAnimation
+      />
     </div>
   );
 };
+
+export default Header;

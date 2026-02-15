@@ -1,5 +1,4 @@
 "use client";
-import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import Image from "next/image";
 import { encode } from "qss";
 import React from "react";
@@ -8,7 +7,7 @@ import {
   motion,
   useMotionValue,
   useSpring,
-} from "motion/react";
+} from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -90,68 +89,54 @@ export const LinkPreview = ({
         </div>
       ) : null}
 
-      <HoverCardPrimitive.Root
-        openDelay={50}
-        closeDelay={100}
-        onOpenChange={(open) => {
-          setOpen(open);
-        }}
+      <div
+        className="relative inline-flex"
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
       >
-        <HoverCardPrimitive.Trigger
-          onMouseMove={handleMouseMove}
-          className={cn("text-black dark:text-white", className)}
-          href={url}
-        >
+        <Link onMouseMove={handleMouseMove} className={cn("text-black dark:text-white", className)} href={url}>
           {children}
-        </HoverCardPrimitive.Trigger>
+        </Link>
 
-        <HoverCardPrimitive.Content
-          className="[transform-origin:var(--radix-hover-card-content-transform-origin)]"
-          side="top"
-          align="center"
-          sideOffset={10}
-        >
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 20, scale: 0.6 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  transition: {
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 20,
-                  },
-                }}
-                exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                className="shadow-xl rounded-xl"
-                style={{
-                  x: translateX,
-                }}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.6 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                },
+              }}
+              exit={{ opacity: 0, y: 20, scale: 0.6 }}
+              className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 rounded-xl shadow-xl"
+              style={{
+                x: translateX,
+              }}
+            >
+              <div
+                className="block rounded-xl border-2 border-transparent bg-white p-1 shadow dark:bg-black"
+                style={{ fontSize: 0 }}
               >
-                <Link
-                  href={url}
-                  className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
-                  style={{ fontSize: 0 }}
-                >
-                  <Image
-                    src={isStatic ? imageSrc : src}
-                    width={width}
-                    height={height}
-                    quality={quality}
-                    layout={layout}
-                    priority={true}
-                    className="rounded-lg"
-                    alt="preview image"
-                  />
-                </Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </HoverCardPrimitive.Content>
-      </HoverCardPrimitive.Root>
+                <Image
+                  src={isStatic ? imageSrc : src}
+                  width={width}
+                  height={height}
+                  quality={quality}
+                  layout={layout}
+                  priority={true}
+                  className="rounded-lg"
+                  alt="preview image"
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 };

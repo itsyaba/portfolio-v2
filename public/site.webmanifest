@@ -1,0 +1,16 @@
+{
+  "name": "Yeabsira | Full-Stack Developer",
+  "short_name": "Yeabsira",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#030712",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

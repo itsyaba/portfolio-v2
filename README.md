@@ -71,9 +71,31 @@ npm run dev
   <li>Open your browser and navigate to <a href="http://localhost:3000">http://localhost:3000</a>.</li>
 </ol>
 
+<h2>🤖 Telegram Visitor Notifications</h2>
+<p>
+  This project can send a Telegram message when someone visits the site.
+</p>
+<ol>
+  <li>Create a bot with <strong>@BotFather</strong> and copy your bot token.</li>
+  <li>Open your bot chat, send any message, then open:<br />
+    <code>https://api.telegram.org/bot&lt;YOUR_BOT_TOKEN&gt;/getUpdates</code><br />
+    Copy <code>message.chat.id</code> as your <code>TELEGRAM_CHAT_ID</code>.
+  </li>
+  <li>Create a <code>.env.local</code> file with:</li>
+</ol>
+<pre>
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
+VISIT_NOTIFY_ENABLED=true
+</pre>
+<p>
+  Country resolution strategy:
+  <strong>x-vercel-ip-country</strong> first (Vercel), then fallback to FreeIPAPI if missing.
+</p>
+
 <h2>🌍 Live Demo</h2>
 <p>
-  Check out the live version of my portfolio: <a href="https://yeabsiras-portfolio.vercel.app/">Yeabsira Portfolio</a>
+  Check out the live version of my portfolio: <a href="https://yeab.works/">Yeabsira Portfolio</a>
 </p>
 
 <h2>📧 Contact</h2>
