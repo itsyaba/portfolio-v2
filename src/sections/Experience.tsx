@@ -95,21 +95,21 @@ export const Experience = () => {
   ];
 
   const data = [
-    {
-      title: "Nov 2025 - Present",
-      subtitle: "Israel - Remote",
-      content: (
-        <div>
-          <h3 className="text-3xl md:text-5xl mb-6  font-serif">IDEEZA</h3>
-          <p className=" text-xs md:text-[14px] font-normal mb-8 font-poppins leading-relaxed">
-            IDEEZA is a generative AI product development platform that turns plain-language ideas
-            into manufacturable hardware blueprints electronic circuits, 3D enclosures, and embedded
-            code within minutes. Users submit a prompt, and the AI engine draws on proprietary
-            engineering rules to output a complete design package.
-          </p>
-        </div>
-      ),
-    },
+    // {
+    //   title: "Nov 2025 - Present",
+    //   subtitle: "Israel - Remote",
+    //   content: (
+    //     <div>
+    //       <h3 className="text-3xl md:text-5xl mb-6  font-serif">IDEEZA</h3>
+    //       <p className=" text-xs md:text-[14px] font-normal mb-8 font-poppins leading-relaxed">
+    //         IDEEZA is a generative AI product development platform that turns plain-language ideas
+    //         into manufacturable hardware blueprints electronic circuits, 3D enclosures, and embedded
+    //         code within minutes. Users submit a prompt, and the AI engine draws on proprietary
+    //         engineering rules to output a complete design package.
+    //       </p>
+    //     </div>
+    //   ),
+    // },
     {
       title: "2025",
       subtitle: "Addis Ababa - Remote",
