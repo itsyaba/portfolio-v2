@@ -12,7 +12,26 @@ import HeroV2 from "@/sections/Hero-v2";
 import Tape from "@/sections/Tape";
 import Loader from "@/components/Loader";
 
+const ARRIVAL_SESSION_KEY = "portfolio_visit_arrival_sent";
+
+function postVisit(body: Record<string, unknown>) {
+  const payload = JSON.stringify(body);
+  if (typeof navigator !== "undefined" && navigator.sendBeacon) {
+    const blob = new Blob([payload], { type: "application/json" });
+    return navigator.sendBeacon("/api/visit", blob);
+  }
+  fetch("/api/visit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: payload,
+    keepalive: true,
+  }).catch(() => {});
+  return true;
+}
+
 export default function HomePageClient() {
+  const [showContent, setShowContent] = useState(false);
+
   useEffect(() => {
     const sectionIds = ["hero", "about", "experience", "tape", "projects", "contact"];
     const sections = sectionIds
@@ -70,25 +89,12 @@ export default function HomePageClient() {
         5000,
       );
 
-      const payload = JSON.stringify({
+      postVisit({
+        arrival: false,
         page: window.location.pathname,
         sections: sectionEntries,
         totalMs,
       });
-
-      if (navigator.sendBeacon) {
-        const blob = new Blob([payload], { type: "application/json" });
-        navigator.sendBeacon("/api/visit", blob);
-      } else {
-        fetch("/api/visit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: payload,
-          keepalive: true,
-        }).catch(() => {});
-      }
     };
 
     const observer = new IntersectionObserver(
@@ -111,6 +117,29 @@ export default function HomePageClient() {
       observer.observe(section);
     });
 
+    let shouldSendArrival = true;
+    try {
+      if (typeof sessionStorage !== "undefined") {
+        if (sessionStorage.getItem(ARRIVAL_SESSION_KEY)) {
+          shouldSendArrival = false;
+        } else {
+          sessionStorage.setItem(ARRIVAL_SESSION_KEY, "1");
+        }
+      }
+    } catch {
+      /* private mode / blocked storage — still send one arrival this load */
+    }
+    if (shouldSendArrival) {
+      queueMicrotask(() => {
+        postVisit({
+          arrival: true,
+          page: window.location.pathname,
+          sections: [],
+          totalMs: 0,
+        });
+      });
+    }
+
     const handleVisibilityChange = () => {
       if (document.visibilityState === "hidden") {
         sendSummary();
@@ -125,10 +154,7 @@ export default function HomePageClient() {
       window.removeEventListener("pagehide", sendSummary);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []);
-  ``;
-
-  const [showContent, setShowContent] = useState(false);
+  }, [showContent]);
 
   const handleLoaderComplete = () => {
     setShowContent(true);

@@ -2,8 +2,8 @@ type TelegramMessageResult = {
   ok: boolean;
 };
 
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN?.trim();
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID?.trim();
 
 export function canSendTelegramMessage() {
   return Boolean(TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID);
@@ -21,7 +21,7 @@ export async function sendTelegramMessage(text: string): Promise<boolean> {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
+        chat_id: String(TELEGRAM_CHAT_ID).trim(),
         text,
       }),
     });

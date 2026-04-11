@@ -49,15 +49,19 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true, skipped: "bot" });
   }
 
-  if (request.cookies.get(VISIT_COOKIE_NAME)) {
-    return NextResponse.json({ ok: true, skipped: "rate_limited" });
-  }
-
   const body = (await request.json().catch(() => ({}))) as {
     page?: string;
     sections?: SectionTiming[];
     totalMs?: number;
+    /** True when the client just finished loading content; does not set the rate-limit cookie. */
+    arrival?: boolean;
   };
+  const isArrival = body.arrival === true;
+
+  if (!isArrival && request.cookies.get(VISIT_COOKIE_NAME)) {
+    return NextResponse.json({ ok: true, skipped: "rate_limited" });
+  }
+
   const page = typeof body.page === "string" ? body.page : "Unknown";
   const sections = Array.isArray(body.sections)
     ? body.sections
@@ -74,8 +78,10 @@ export async function POST(request: NextRequest) {
     timeZone: "Africa/Addis_Ababa",
   });
 
+  const headline = isArrival ? "👀 Portfolio opened" : "👋 Visit ended";
+
   const messageLines = [
-    "👀 New Portfolio Visit",
+    headline,
     "",
     "📍 Location",
     `• Country: ${location.country}`,
@@ -110,12 +116,14 @@ export async function POST(request: NextRequest) {
   }
 
   const response = NextResponse.json({ ok: true });
-  response.cookies.set(VISIT_COOKIE_NAME, "1", {
-    httpOnly: true,
-    sameSite: "lax",
-    maxAge: VISIT_COOKIE_MAX_AGE_SECONDS,
-    path: "/",
-    secure: process.env.NODE_ENV === "production",
-  });
+  if (!isArrival) {
+    response.cookies.set(VISIT_COOKIE_NAME, "1", {
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: VISIT_COOKIE_MAX_AGE_SECONDS,
+      path: "/",
+      secure: process.env.NODE_ENV === "production",
+    });
+  }
   return response;
 }
