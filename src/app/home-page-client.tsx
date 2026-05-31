@@ -92,6 +92,7 @@ export default function HomePageClient() {
       postVisit({
         arrival: false,
         page: window.location.pathname,
+        referrer: document.referrer || undefined,
         sections: sectionEntries,
         totalMs,
       });

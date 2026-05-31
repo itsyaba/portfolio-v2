@@ -53,16 +53,22 @@ export async function POST(request: NextRequest) {
     page?: string;
     sections?: SectionTiming[];
     totalMs?: number;
+    referrer?: string;
     /** True when the client just finished loading content; does not set the rate-limit cookie. */
     arrival?: boolean;
   };
   const isArrival = body.arrival === true;
 
-  if (!isArrival && request.cookies.get(VISIT_COOKIE_NAME)) {
+  if (isArrival) {
+    return NextResponse.json({ ok: true, skipped: "arrival" });
+  }
+
+  if (request.cookies.get(VISIT_COOKIE_NAME)) {
     return NextResponse.json({ ok: true, skipped: "rate_limited" });
   }
 
   const page = typeof body.page === "string" ? body.page : "Unknown";
+  const referrer = typeof body.referrer === "string" ? body.referrer : request.headers.get("referer") || "";
   const sections = Array.isArray(body.sections)
     ? body.sections
         .filter((entry) => entry && typeof entry.id === "string")
@@ -78,7 +84,7 @@ export async function POST(request: NextRequest) {
     timeZone: "Africa/Addis_Ababa",
   });
 
-  const headline = isArrival ? "👀 Portfolio opened" : "👋 Visit ended";
+  const headline = "👋 Visit ended";
 
   const messageLines = [
     headline,
@@ -92,6 +98,10 @@ export async function POST(request: NextRequest) {
     `• Page: ${page}`,
     `• Time: ${timestamp}`,
   ];
+
+  if (referrer) {
+    messageLines.push(`• Referrer: ${referrer}`);
+  }
 
   if (totalMs > 0) {
     messageLines.push(`• Total Time: ${formatDuration(totalMs)}`);
