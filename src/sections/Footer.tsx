@@ -45,6 +45,7 @@ export const Footer = () => {
                 href={link.href}
                 key={link.title}
                 className="inline-flex items-center gap-1.5 cursor-pointer hover:underline hover:text-white/80 transition-all"
+                data-visit-click={`Footer: ${link.title}`}
               >
                 <span className="font-semibold">{link.title}</span>
                 <ArrowUpRightIcon className="size-4" />

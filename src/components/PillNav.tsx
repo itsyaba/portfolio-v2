@@ -259,6 +259,7 @@ const PillNav: React.FC<PillNavProps> = ({
           <Link
             href={items[0].href}
             aria-label="Home"
+            data-visit-click="Nav: Home"
             onMouseEnter={handleLogoEnter}
             role="menuitem"
             ref={(el) => {
@@ -299,6 +300,7 @@ const PillNav: React.FC<PillNavProps> = ({
           <a
             href={items?.[0]?.href || "#"}
             aria-label="Home"
+            data-visit-click="Nav: Home"
             onMouseEnter={handleLogoEnter}
             ref={(el) => {
               logoRef.current = el;
@@ -396,6 +398,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       className={cn(basePillClasses)}
                       style={pillStyle}
                       aria-label={item.ariaLabel || item.label}
+                      data-visit-click={`Nav: ${item.label}`}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
                     >
@@ -408,6 +411,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       className={cn(basePillClasses)}
                       style={pillStyle}
                       aria-label={item.ariaLabel || item.label}
+                      data-visit-click={`Nav: ${item.label}`}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
                     >
@@ -476,6 +480,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     href={item.href}
                     className={linkClasses}
                     style={defaultStyle}
+                    data-visit-click={`Nav: ${item.label}`}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -487,6 +492,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     href={item.href}
                     className={linkClasses}
                     style={defaultStyle}
+                    data-visit-click={`Nav: ${item.label}`}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
                     onClick={() => setIsMobileMenuOpen(false)}

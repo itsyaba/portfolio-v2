@@ -700,6 +700,7 @@ export default function DomeGallery({
         linkEl.target = "_blank";
         linkEl.rel = "noreferrer";
         linkEl.textContent = "check it out";
+        linkEl.dataset.visitClick = `Side project: ${rawTitle || rawAlt || "Untitled"}`;
         caption.appendChild(linkEl);
       }
 
@@ -961,6 +962,7 @@ export default function DomeGallery({
                     role="button"
                     tabIndex={0}
                     aria-label={it.alt || "Open image"}
+                    data-visit-click={`Side project preview: ${it.title || it.alt || "Untitled"}`}
                     onClick={(e) => {
                       if (draggingRef.current) return;
                       if (movedRef.current) return;

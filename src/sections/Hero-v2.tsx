@@ -35,7 +35,7 @@ const HeroV2 = () => {
         </div>
 
         <div className="flex items-center justify-center flex-col md:flex-row mt-8 gap-4 relative z-10">
-          <Link href="#projects">
+          <Link href="#projects" data-visit-click="CTA: Explore My Work">
             <HoverBorderGradient
               containerClassName="rounded-full"
               className="bg-white text-black flex items-center space-x-2"
@@ -45,7 +45,7 @@ const HeroV2 = () => {
               <ArrowDown className="size-4" />
             </HoverBorderGradient>
           </Link>
-          <Link href="/resume.pdf" download="yeabsira.pdf">
+          <Link href="/resume.pdf" download="yeabsira.pdf" data-visit-click="Resume download">
             <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-12 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 hover:cursor-pointer z-10">
               My Resume
             </button>

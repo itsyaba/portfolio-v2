@@ -338,7 +338,12 @@ export function ProjectsSection() {
                 viewport={{ once: false }}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
               >
-                <Link href={project.link} className="w-1/3" target="_blank">
+                <Link
+                  href={project.link}
+                  className="w-1/3"
+                  target="_blank"
+                  data-visit-click={`Project: ${project.name}`}
+                >
                   <button className="bg-white text-gray-950 h-12 w-1/3 rounded-xl font-semibold inline-flex items-center justify-center gap-2 cursor-pointer hover:bg-white/80   transition-all duration-300 capitalize ">
                     <span> check it out </span>
                     <ArrowRightIcon className="size-4 " />

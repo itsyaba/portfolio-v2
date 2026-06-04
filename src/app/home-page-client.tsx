@@ -13,6 +13,14 @@ import Tape from "@/sections/Tape";
 import Loader from "@/components/Loader";
 
 const ARRIVAL_SESSION_KEY = "portfolio_visit_arrival_sent";
+const MAX_TRACKED_CLICKS = 25;
+
+type TrackedClick = {
+  label: string;
+  href?: string;
+  section?: string;
+  elapsedMs: number;
+};
 
 function postVisit(body: Record<string, unknown>) {
   const payload = JSON.stringify(body);
@@ -47,6 +55,8 @@ export default function HomePageClient() {
     let activeSectionId: string | null = null;
     let lastChange = performance.now();
     let hasSent = false;
+    const visitStartedAt = performance.now();
+    const clicks: TrackedClick[] = [];
 
     const addTime = (sectionId: string, now: number) => {
       const current = timings.get(sectionId) ?? 0;
@@ -67,6 +77,65 @@ export default function HomePageClient() {
     };
 
     const roundToNearest = (value: number, step: number) => Math.round(value / step) * step;
+
+    const getReadableText = (value: string | null | undefined) =>
+      value?.replace(/\s+/g, " ").trim().slice(0, 80) || "";
+
+    const getClickTarget = (target: EventTarget | null) => {
+      if (!(target instanceof Element)) {
+        return null;
+      }
+
+      return (
+        target.closest<HTMLElement>("[data-visit-click]") ||
+        target.closest<HTMLElement>("a, button, [role='button']")
+      );
+    };
+
+    const getContainingSectionId = (element: HTMLElement) =>
+      sections.find((section) => section.contains(element))?.id;
+
+    const getClickLabel = (element: HTMLElement) => {
+      const explicitLabel = getReadableText(element.dataset.visitClick);
+      if (explicitLabel) {
+        return explicitLabel;
+      }
+
+      const label =
+        getReadableText(element.getAttribute("aria-label")) ||
+        getReadableText(element.textContent) ||
+        getReadableText(element.getAttribute("title"));
+
+      if (!label || label.toLowerCase() === "toggle menu") {
+        return null;
+      }
+
+      return label;
+    };
+
+    const handleClick = (event: MouseEvent) => {
+      if (clicks.length >= MAX_TRACKED_CLICKS) {
+        return;
+      }
+
+      const element = getClickTarget(event.target);
+      if (!element) {
+        return;
+      }
+
+      const label = getClickLabel(element);
+      if (!label) {
+        return;
+      }
+
+      const link = element.closest<HTMLAnchorElement>("a[href]");
+      clicks.push({
+        label,
+        href: link?.href,
+        section: getContainingSectionId(element),
+        elapsedMs: performance.now() - visitStartedAt,
+      });
+    };
 
     const sendSummary = () => {
       if (hasSent) {
@@ -95,6 +164,7 @@ export default function HomePageClient() {
         referrer: document.referrer || undefined,
         sections: sectionEntries,
         totalMs,
+        clicks,
       });
     };
 
@@ -149,11 +219,13 @@ export default function HomePageClient() {
 
     window.addEventListener("pagehide", sendSummary);
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    document.addEventListener("click", handleClick, { capture: true });
 
     return () => {
       observer.disconnect();
       window.removeEventListener("pagehide", sendSummary);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      document.removeEventListener("click", handleClick, { capture: true });
     };
   }, [showContent]);
 
